@@ -1,0 +1,42 @@
+package StringDemo;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class StringExamples {
+
+	public static void main(String [] args){
+		
+		A a=new B(); // Reference variable to parent class refers to object of child class
+		
+		a.print();
+		
+		/*A a1 = new C();
+		a1.print();*/
+		
+	//	WebDriver driver= new FirefoxDriver();
+			
+	}
+}
+
+class A
+{
+	public void print()
+	{
+		System.out.println("Printer is of HP");
+	}
+}
+
+class B extends A
+{
+	public void print(){
+		System.out.println("Print this page");
+	}
+}
+
+class C extends B
+{
+	public void print(){
+		System.out.println("Its colored printer");
+	}
+}
