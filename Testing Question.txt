@@ -1,0 +1,40 @@
+*******************************************************************************
+24) What are the challanges you have faced in your project?
+Ans: While creating automation script I faced below challenges
+       - Learning curve from functional to automation was very big challenge even that being at client side. Like putting extra hours for automation was quit diffcuilt.
+       - In Project at the end after the successful validation of the authorisation, the reference number is generated for this it was taking very long as usueal, So we have implemented the Explicit wait to this specific condition
+       - For every invalid entry or if the practise type is disabled there used to be information pop up we have handled this through alert
+       - Reading the data from excel and fetching the reference number from the application and putting it back in the same row was difficult.
+*******************************************************************************
+25) Defect Life Cycle?
+Ans - NEW-OPEN-FIXED-REOPEN-DEFFERED-REJECTED-FUTURE FIX-CLOSED
+*******************************************************************************
+26) What will be your approach if you have to automate signup for 100 profile.
+Ans: We will write down all the username and password in excel spreadsheet and we follow the data driven approach
+*******************************************************************************
+27) What is the difference between Assert and Verify?
+
+Ans:	Assert- It is used to verify the result. 
+	If the test case fail then it will stop the execution of the test case there itself and move the control to other test case.
+
+	Verify- it is also used to verify the result. If the test case fail then it will not stop the execution of that test case.
+*******************************************************************************
+28) SELENIUM REAL TIME INTERVIEW QUESTIONS - What are desired capabilities?
+
+Ans:	Desired Capabilities help to set properties for the Web Driver. 
+	A typical use case would be to set the path for the Firefox Driver if your local installation doesn't correspond to the default settings.
+*******************************************************************************
+29) Why do we go for automation testing ?
+
+Ans- Reasons-
+	a) Manual testing of all work flows, all fields, all negative scenarios is time and cost consuming.
+	b) It is difficult to test for multi lingual sites manually.
+	c) Automation does not require human intervention. We can run automated test unattended(Overnight).
+	d) Automation increases speed of test execution.
+	e) Automation helps increase test coverage.
+	f) Manual testing can become boring and hence error prone.
+*******************************************************************************
+30) What is testing strategy ?
+
+Ans- A Test Strategy document is a high level document and normally developed by project manager. This document defines “Software Testing Approach” to achieve testing objectives. The Test Strategy is normally derived from the Business Requirement Specification document.
+*******************************************************************************

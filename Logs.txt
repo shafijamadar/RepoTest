@@ -1,0 +1,312 @@
+User - ---------- Iteration 1 - This is to test that a Valid user initiates the password reset ----------
+SQL executed - SELECT * FROM dbo.tb_Operator o
+JOIN dbo.tb_Casino c
+ON o.Id = c.OperatorId
+WHERE c.Name = 'Island Paradise'
+SQL connection string - server=DER0525;database=ATS;uid=ARS_QTP_User;password=!@#$%A1
+Error returned - System.Net.Sockets.SocketException (0x80004005): No such host is known
+   at System.Net.Dns.GetAddrInfo(String name)
+   at System.Net.Dns.InternalGetHostByName(String hostName, Boolean includeIPv6)
+   at System.Net.Dns.GetHostAddresses(String hostNameOrAddress)
+   at BackOffice.Automation.DataAccess.Data.GetDataObject(String ConnectionString, String SQL) in C:\GIT\BackOffice-Automation\Core\BackOffice.Automation.DataAccess\DataObject.cs:line 529
+SQL executed - DECLARE @DbType NVARCHAR(20) = 'PTSNetSecurity'
+
+SELECT DISTINCT
+        CASE
+                WHEN @DbType IN ('PTSNet', 'PTSNetDW') THEN o.ShortName
+                WHEN @DbType IN ('PTSNetSecurity', 'PTSNetSettings','PTSNetAudit') THEN o.CaimanEcoSystem
+                ELSE ''
+        END AS Prefix
+FROM tb_Operator o
+JOIN tb_Casino c
+        ON c.OperatorId = o.Id
+JOIN tb_GamingServer gs
+        ON gs.GamingServerId = c.GamingServerId
+WHERE o.Name = 'southseasgaming' OR o.ShortName = 'southseasgaming' OR CAST(o.CaimanOperatorId AS NVARCHAR(10)) = 'southseasgaming'
+        OR c.Name = 'southseasgaming' OR CAST(c.CasinoId AS NVARCHAR(10)) = 'southseasgaming'
+        OR gs.Name = 'southseasgaming' OR CAST(gs.GamingServerId AS NVARCHAR(10)) = 'southseasgaming'
+SQL connection string - server=DER0525;database=ATS;uid=ARS_QTP_User;password=!@#$%A1
+Error returned - System.Net.Sockets.SocketException (0x80004005): No such host is known
+   at System.Net.Dns.GetAddrInfo(String name)
+   at System.Net.Dns.InternalGetHostByName(String hostName, Boolean includeIPv6)
+   at System.Net.Dns.GetHostAddresses(String hostNameOrAddress)
+   at BackOffice.Automation.DataAccess.Data.GetDataObject(String ConnectionString, String SQL) in C:\GIT\BackOffice-Automation\Core\BackOffice.Automation.DataAccess\DataObject.cs:line 529
+SQL executed - DECLARE @DbType NVARCHAR(20) = 'PTSNetSecurity'
+
+SELECT DISTINCT
+        CASE
+                WHEN @DbType IN ('PTSNet', 'PTSNetDW') THEN o.ShortName
+                WHEN @DbType IN ('PTSNetSecurity', 'PTSNetSettings','PTSNetAudit') THEN o.CaimanEcoSystem
+                ELSE ''
+        END AS Prefix
+FROM tb_Operator o
+JOIN tb_Casino c
+        ON c.OperatorId = o.Id
+JOIN tb_GamingServer gs
+        ON gs.GamingServerId = c.GamingServerId
+WHERE o.Name = 'southseasgaming' OR o.ShortName = 'southseasgaming' OR CAST(o.CaimanOperatorId AS NVARCHAR(10)) = 'southseasgaming'
+        OR c.Name = 'southseasgaming' OR CAST(c.CasinoId AS NVARCHAR(10)) = 'southseasgaming'
+        OR gs.Name = 'southseasgaming' OR CAST(gs.GamingServerId AS NVARCHAR(10)) = 'southseasgaming'
+SQL connection string - server=DER0525;database=ATS;uid=ARS_QTP_User;password=!@#$%A1
+Error returned - System.Net.Sockets.SocketException (0x80004005): No such host is known
+   at System.Net.Dns.GetAddrInfo(String name)
+   at System.Net.Dns.InternalGetHostByName(String hostName, Boolean includeIPv6)
+   at System.Net.Dns.GetHostAddresses(String hostNameOrAddress)
+   at BackOffice.Automation.DataAccess.Data.GetDataObject(String ConnectionString, String SQL) in C:\GIT\BackOffice-Automation\Core\BackOffice.Automation.DataAccess\DataObject.cs:line 529
+SQL executed - DECLARE @DbType NVARCHAR(20) = 'PTSNetSecurity'
+
+SELECT DISTINCT
+        CASE
+                WHEN @DbType IN ('PTSNet', 'PTSNetDW') THEN o.ShortName
+                WHEN @DbType IN ('PTSNetSecurity', 'PTSNetSettings','PTSNetAudit') THEN o.CaimanEcoSystem
+                ELSE ''
+        END AS Prefix
+FROM tb_Operator o
+JOIN tb_Casino c
+        ON c.OperatorId = o.Id
+JOIN tb_GamingServer gs
+        ON gs.GamingServerId = c.GamingServerId
+WHERE o.Name = 'southseasgaming' OR o.ShortName = 'southseasgaming' OR CAST(o.CaimanOperatorId AS NVARCHAR(10)) = 'southseasgaming'
+        OR c.Name = 'southseasgaming' OR CAST(c.CasinoId AS NVARCHAR(10)) = 'southseasgaming'
+        OR gs.Name = 'southseasgaming' OR CAST(gs.GamingServerId AS NVARCHAR(10)) = 'southseasgaming'
+SQL connection string - server=DER0525;database=ATS;uid=ARS_QTP_User;password=!@#$%A1
+Error returned - System.Net.Sockets.SocketException (0x80004005): No such host is known
+   at System.Net.Dns.GetAddrInfo(String name)
+   at System.Net.Dns.InternalGetHostByName(String hostName, Boolean includeIPv6)
+   at System.Net.Dns.GetHostAddresses(String hostNameOrAddress)
+   at BackOffice.Automation.DataAccess.Data.GetDataObject(String ConnectionString, String SQL) in C:\GIT\BackOffice-Automation\Core\BackOffice.Automation.DataAccess\DataObject.cs:line 529
+SQL executed - DECLARE @Id INT
+DECLARE @Table NVARCHAR(50)
+DECLARE @Type NVARCHAR(50)
+SET @Id = 5001
+SET @Table = 'Operator'
+
+IF (@Table = 'Casino' OR @Table = 'CasinoMap')
+        IF EXISTS(SELECT 1 FROM tb_Casino WHERE (CasinoId = @Id OR GamingServerId = @Id))
+                SELECT * , '' AS RefCasinoId
+                FROM tb_Casino
+                WHERE (CasinoId = @Id OR GamingServerId = @Id)
+        ELSE
+                SELECT *
+                FROM tb_CasinoMap
+                WHERE (RefCasinoId = @Id OR CasinoId = @Id OR GamingServerId = @Id)
+        IF @Table = 'GamingServer'
+                SELECT gs.*
+                FROM tb_GamingServer gs
+                LEFT JOIN tb_Casino c
+                        ON c.GamingServerId = gs.GamingServerId
+                LEFT JOIN tb_CasinoMap cm
+                        ON cm.GamingServerId = gs.GamingServerId
+                WHERE (gs.Id = @Id OR gs.GamingServerId = @Id OR c.CasinoId = @Id OR c.GamingServerId = @Id OR cm.RefCasinoId = @Id OR cm.GamingServerId = @Id)
+
+        IF @Table = 'Operator'
+                SELECT o.*
+                FROM tb_Operator o
+                LEFT JOIN tb_Casino c
+                        ON c.OperatorId = o.Id
+                LEFT JOIN tb_CasinoMap cm
+                        ON cm.CasinoId = c.CasinoId
+                WHERE (o.Id = @Id OR RaptorOperatorId = @Id OR PokerOperatorId = @Id OR CaimanOperatorId = @Id OR MPVOperatorId = @Id OR BingoOperatorId = @Id OR c.CasinoId = @Id OR c.GamingServerId = @Id OR cm.RefCasinoId = @Id OR cm.GamingServerId = @Id)
+
+SQL connection string - server=DER0525;database=ATS;uid=ARS_QTP_User;password=!@#$%A1
+Error returned - System.Net.Sockets.SocketException (0x80004005): No such host is known
+   at System.Net.Dns.GetAddrInfo(String name)
+   at System.Net.Dns.InternalGetHostByName(String hostName, Boolean includeIPv6)
+   at System.Net.Dns.GetHostAddresses(String hostNameOrAddress)
+   at BackOffice.Automation.DataAccess.Data.GetDataObject(String ConnectionString, String SQL) in C:\GIT\BackOffice-Automation\Core\BackOffice.Automation.DataAccess\DataObject.cs:line 529
+SQL executed - DECLARE @Id INT
+DECLARE @Table NVARCHAR(50)
+DECLARE @Type NVARCHAR(50)
+SET @Id =
+SET @Table = 'Operator'
+
+IF (@Table = 'Casino' OR @Table = 'CasinoMap')
+        IF EXISTS(SELECT 1 FROM tb_Casino WHERE (CasinoId = @Id OR GamingServerId = @Id))
+                SELECT * , '' AS RefCasinoId
+                FROM tb_Casino
+                WHERE (CasinoId = @Id OR GamingServerId = @Id)
+        ELSE
+                SELECT *
+                FROM tb_CasinoMap
+                WHERE (RefCasinoId = @Id OR CasinoId = @Id OR GamingServerId = @Id)
+        IF @Table = 'GamingServer'
+                SELECT gs.*
+                FROM tb_GamingServer gs
+                LEFT JOIN tb_Casino c
+                        ON c.GamingServerId = gs.GamingServerId
+                LEFT JOIN tb_CasinoMap cm
+                        ON cm.GamingServerId = gs.GamingServerId
+                WHERE (gs.Id = @Id OR gs.GamingServerId = @Id OR c.CasinoId = @Id OR c.GamingServerId = @Id OR cm.RefCasinoId = @Id OR cm.GamingServerId = @Id)
+
+        IF @Table = 'Operator'
+                SELECT o.*
+                FROM tb_Operator o
+                LEFT JOIN tb_Casino c
+                        ON c.OperatorId = o.Id
+                LEFT JOIN tb_CasinoMap cm
+                        ON cm.CasinoId = c.CasinoId
+                WHERE (o.Id = @Id OR RaptorOperatorId = @Id OR PokerOperatorId = @Id OR CaimanOperatorId = @Id OR MPVOperatorId = @Id OR BingoOperatorId = @Id OR c.CasinoId = @Id OR c.GamingServerId = @Id OR cm.RefCasinoId = @Id OR cm.GamingServerId = @Id)
+
+SQL connection string - server=DER0525;database=ATS;uid=ARS_QTP_User;password=!@#$%A1
+Error returned - System.Net.Sockets.SocketException (0x80004005): No such host is known
+   at System.Net.Dns.GetAddrInfo(String name)
+   at System.Net.Dns.InternalGetHostByName(String hostName, Boolean includeIPv6)
+   at System.Net.Dns.GetHostAddresses(String hostNameOrAddress)
+   at BackOffice.Automation.DataAccess.Data.GetDataObject(String ConnectionString, String SQL) in C:\GIT\BackOffice-Automation\Core\BackOffice.Automation.DataAccess\DataObject.cs:line 529
+SQL executed - DECLARE @Loginname NVARCHAR(MAX) ,     @Request NVARCHAR(2000); SELECT TOP 1         @Loginname = LoginName FROM    dbo.tb_User U         INNER JOIN dbo.tb_UserOperatorMapping UOM ON UOM.UserId = U.UserId         LEFT JOIN dbo.tb_Mail_Request MR ON MR.OperatorID = UOM.OperatorId                                             AND MR.UserID = U.UserId WHERE   UOM.AccountStatusId = 1         AND LoginName NOT LIKE '%admin%'   AND MR.UserID IS NULL; SET @Request = '{"LoginName":"' + @Loginname + '"}'; SELECT  @Request AS Request;
+SQL connection string -
+Error returned - System.NullReferenceException: Object reference not set to an instance of an object.
+   at BackOffice.Automation.DataAccess.Data.GetDataObject(String ConnectionString, String SQL) in C:\GIT\BackOffice-Automation\Core\BackOffice.Automation.DataAccess\DataObject.cs:line 532
+Request Data - --Request data as generated from TFS--
+API Name - ForgotPasswordAPI
+Method - ResetPassword
+Protocol Type - http
+WebServer - southseasgaming.microgaming.com
+URL - /ForgotPassword/resetpassword/passwords/reset/?login=#LOGINNAME#
+Action Verb - POST
+Security Token Type - CaimanNoLogin
+Request Type -
+Request DB Type - PTSNetSecurity
+Request SQL Uri - DECLARE @Loginname NVARCHAR(MAX) ,     @Request NVARCHAR(2000); SELECT TOP 1         @Loginname = LoginName FROM    dbo.tb_User U         INNER JOIN dbo.tb_UserOperatorMapping UOM ON UOM.UserId = U.UserId         LEFT JOIN dbo.tb_Mail_Request MR ON MR.OperatorID = UOM.OperatorId                                             AND MR.UserID = U.UserId WHERE   UOM.AccountStatusId = 1         AND LoginName NOT LIKE '%admin%'   AND MR.UserID IS NULL; SET @Request = '{"LoginName":"' + @Loginname + '"}'; SELECT  @Request AS Request;
+Request SQL Body -
+Response Data - --Response data as generated from TFS--
+Response DB Type - PTSNetSecurity
+Response SQL - DECLARE @Message NVARCHAR(MAX)        ,@ValidTime NVARCHAR(MAX)        ,@GUID NVARCHAR(MAX)  Select TOP 1 @ValidTime = SecurityPolicyValue, @GUID = RequestGUID from tb_OperatorSecurityPolicyMapping OPM INNER JOIN tb_Mail_Request MR ON OPM.OperatorId = MR.OperatorID WHERE OPM.SecurityPolicyId = 7 and RequestStatusID = 2 ORDER BY MR.RequestID DESC SET @Message = '{"message": "An email has been sent to you, please follow the instructions to reset your password.<br>Note: The link to allow you to change your password will expire in ' + @ValidTime + ' minutes."}'  SELECT @Message
+Validation Data - --Validation data as generated from TFS--
+Validation DB Type - PTSNetSecurity
+Validation SQL - DECLARE @Loginname NVARCHAR(MAX); SET @Loginname = '#LOGINNAME#' IF EXISTS ( SELECT  1  FROM    tb_User U INNER JOIN tb_Mail_Request MR ON U.UserId = MR.UserID WHERE   U.LoginName = @Loginname AND RequestStatusID = 2 ) SELECT  'true'; ELSE     SELECT  'false';
+Test Exception - Object reference not set to an instance of an object.
+Stack Trace -    at Api.Tests.Api.RunTestCode(RunArguments args, RunResults& result) in C:\GIT\BackOffice-Automation\src\BackOffice.Automation\API.Tests\Tests\ApiTemplate.cs:line 208
+Source - API.Tests
+
+
+
+
+
+¦  ¦
+¦ Results ¦
+¦  ¦
+
+
+Test Passed: False
+Error: N/A
+
+
+
+
+
+<press any key to continue>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
