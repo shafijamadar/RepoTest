@@ -49,6 +49,19 @@ Ans:- If we have Read a file in try block and some exception will occur then it 
 	  
 	  
 	  List - We can add duplicate values in list 
+	  ArrayList is dynamically growing,
+	  ArrayList - There is order 
+	  ArrayList is inbuild class in java which can be used to create dynamically growing data structure
+	  
+	  ArrayList list=new ArrayList();
+	  list.add("A"); // 0 index
+	  list.add("B");
+	  list.add("C");
+	  list.add("D"); // 3 index
+	  
+	  list.get(2);
+	  list.size();
+	  
 	  ArrayList<String> l= new ArrayList<String>();
 	  l.add("Shafi");
 	  l.add("Shafi");
@@ -57,6 +70,9 @@ Ans:- If we have Read a file in try block and some exception will occur then it 
 	  System.out.println(l.size());
 	  
 	  Set - We can have only unqiue values in set
+	  
+	  HastSet - There is no order
+	  
 	  HashSet<String> hs= new HashSet<String>();
 	  l.add("Shafi");
 	  l.add("Shafi");
@@ -69,5 +85,87 @@ Ans:- If we have Read a file in try block and some exception will occur then it 
 	  ht.put("name","Selenium");
 	  ht.put(null,null);
 	  
+	  package Module7;
+
+import java.util.Hashtable;
+
+public class HashTableDemo {
+
+	public static void main(String[] args) {
+
+		Hashtable<String, String> table1= new Hashtable<String, String>();
+		table1.put("City1", "Pune");
+		table1.put("City2", "London");
+		table1.put("City3", "Sandton");
+		table1.put("City3", "Sandton");
+		
+		Hashtable<String, String> table2= new Hashtable<String, String>();
+		table2.put("City1", "04564");
+		table2.put("City2", "04531");
+		table2.put("City3", "45121");
+		table2.put("City3", "98712");
+		
+		Hashtable<String, Hashtable<String, String>> table= new Hashtable<String, Hashtable<String, String>>();
+		table.put("name", table1);
+		table.put("zip", table2);
+		
+		System.out.println(table.size());
+		System.out.println(table.get("name").get("City2"));
+		System.out.println(table.get("zip").get("City2"));
+		
+		
+	}
+
+}
+
+	  
+	  
+	  
 	  HashMap<String,String> hm= new HashMap<String,String>();
 	  hm.put("name","Selenium")
+	  
+	  When to use HashTable in Selenium?
+	  It can be used to store a data
+	  
+	  Reflection API - if variable name and method name is same then we can use Reflection API to call method in the class
+	  
+	  package Module7;
+
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
+
+
+public class ReflectionAPIDemo {
+
+	// Reflection API will be used to make a hybrid framework or keyword driven framework
+	// this will refer the keyword used in excel file and call the corresponding method
+	public static void main(String[] args) {
+		
+		String x="SampleTest"; 
+		
+		Method method= ReflectionAPI.class.getMethod(x, String.class);
+		method.invoke(method, "hello");
+
+		System.out.println("end");
+		
+	}
+	
+	public static void sampleTest(String x){
+		System.out.println("In Sample Test-- " +x);
+	}
+	
+	
+
+}
+
+====================== TestNG ==================================
+Return type of DataProvider is Object array.
+What is the problems are faced in TestNG?
+
+If asserstion fails program stop
+
+Default report is not very impressive
+Maven to Generate Reports
+
+Sharing same web instance among multiple test cases that time it was bit tough
