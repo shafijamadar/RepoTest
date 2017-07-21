@@ -1,0 +1,73 @@
+1) Difference between equals() and = = ?
+Ans:-  equals() - Is used to compare inner contents two objects. This can be achived by overriding equals method.
+		== - It is used to compare premative types.
+		
+2) Difference between char Array and String Array?
+Ans:- String a[] = new String[2];
+	  a[0]="Shafi";
+	  Char b[]= new Char[2];
+	  
+3) Is null is keyword?
+Ans:- Yes, null is keyword.
+	int i=null; - That means i is not pointing to anywhere in memory
+
+4) What is the default value value of boolean?
+Ans:- Default value of is false.
+	  Default value of int is 0
+	  Default value of object reference is null
+	  
+5) Difference between String and Stringbuffer ?
+Ans:- Every string function a returns a new object 
+	  String s="Hello There"; - This will create a new object in String Constant pool.
+	  s=s.subString(0,3); - subString will return a new object in memory and start pointing towards it.
+	  
+	  String buffer - Prevents it from Creating a new Object.
+	  
+	  StringBuffer buffer= new StringBuffer();
+	  buffer.append("A");
+	  buffer.append("B"); - Append function will keeps adding into previous string 
+	  System.out.println(buffer);
+	  
+	  BufferString methods do not return a new object.
+	  
+6) Class.forName(Firefoxdriver);
+Ans:- It is capable of creating an object of firefox driver.
+
+7) If we write FileInputStream statments in try block, what are the statements will write in finally block ?
+Ans:- If we have Read a file in try block and some exception will occur then it will go into catch block, and the connection for file remains open. If we 	   write finally the file connection will be closed.
+
+	  try {
+		  FileInputStream ip= new FileInputStream("file location");
+			// Read the file and write
+	  }
+	  catch(Execption e){
+		  
+	  }
+	  finally{
+		  ip.close();
+	  }
+	  
+	  
+	  List - We can add duplicate values in list 
+	  ArrayList<String> l= new ArrayList<String>();
+	  l.add("Shafi");
+	  l.add("Shafi");
+	  l.add("Zensar");
+	  
+	  System.out.println(l.size());
+	  
+	  Set - We can have only unqiue values in set
+	  HashSet<String> hs= new HashSet<String>();
+	  l.add("Shafi");
+	  l.add("Shafi");
+	  l.add("Zensar");
+	  
+	  HashTable is thred safe - It means if 2 directly access same programs, then only one will be able to change it at one time
+	  In HashTable you cannot have key and value as null
+	  
+	  HashTable<String,String> ht=new HashTable<String,String>();
+	  ht.put("name","Selenium");
+	  ht.put(null,null);
+	  
+	  HashMap<String,String> hm= new HashMap<String,String>();
+	  hm.put("name","Selenium")
